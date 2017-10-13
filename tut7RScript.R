@@ -19,3 +19,23 @@ countFasta=apply(conFasta,1,nchar)
 #
 #Plotting the result as a histogram
 seqLenPlot=hist(countFasta, xlab="Sequence Length")
+#
+#{Plotting by GC Content (proportion of sequence which is GC)}
+#
+#Counting Gs in each sequence
+gCount=str_count(conFasta[,1], pattern="G")
+#
+#Counting Cs in each sequence
+cCount=str_count(conFasta[,1], pattern="C")
+#
+#Total GC count in each seq
+GCCount=gCount+cCount
+#
+#Getting proportion of seq which is GC
+GCfreq=GCCount/countFasta
+#
+#Plotting GC proportion as histogram
+GCfreqPlot=hist(GCfreq, xlab="GC Proportion")
+#
+#I love it when manipulating matrices is as simple as a plus
+#and a minus sign ! :)
