@@ -39,3 +39,17 @@ GCfreqPlot=hist(GCfreq, xlab="GC Proportion")
 #
 #I love it when manipulating matrices is as simple as a plus
 #and a minus sign ! :)
+#
+#{Ouestion 2}
+#
+#Reading my data
+crimeData=read.csv("crimeData.csv")
+#
+#Turning into R object
+crimeTable=data.frame(crimeData)
+#
+#Plotting Data
+plot(crimeTable[,2],crimeTable[,1], type="p", xlab="Median Household Income", ylab="Property Crime Rate", main="Examining Affluence and Crime", sub="(TX Counties, 2015)")
+#
+#Plotting trendline
+abline(lm(crimeTable[,1]~crimeTable[,2],crimeTable))
